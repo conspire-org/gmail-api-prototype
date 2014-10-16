@@ -41,7 +41,7 @@ class ListActor(service: Gmail, http: HttpTransport) extends Actor with Stash {
     println("Half-opening message breaker")
   )  
   
-  val workers = context.actorOf(RoundRobinPool(3).props(Props(classOf[MessageActor], service, stats, http, breaker)))
+  val workers = context.actorOf(RoundRobinPool(4).props(Props(classOf[MessageActor], service, stats, http, breaker)))
   
   var counter = 0
   
@@ -231,7 +231,7 @@ object GmailAPI extends App {
   val httpTransport = new NetHttpTransport
   val jsonFactory = new JacksonFactory
 
-  val cred = new GoogleCredential().setAccessToken("Token goes here")
+  val cred = new GoogleCredential().setAccessToken("ya29.oAA8tf1ptRFdboEYIzZ_xB5L6yTDADQ6q-rObkQe2Si-JdirxhH9o2Eg")
   val service = new Gmail.Builder(httpTransport, jsonFactory, cred).setApplicationName("Conspire Analyzer").build()
   
   implicit val sys = ActorSystem()

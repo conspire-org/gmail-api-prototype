@@ -1,0 +1,24 @@
+Topic                                                                     # workers                                 msg batch size                            msg list request size
+- Threads API
+    - 3000msgs/min                                                        5                                         5                                         50
+    - 1500msgs/min                                                        5                                         100                                       100
+          Lots of 429
+    - 1500msgs/min                                                        2                                         100                                       100
+    - 3000msgs/min                                                        2                                         50                                        50
+    - 2300msgs/min                                                        2                                         25                                        50
+    - 1500msgs/min                                                        2                                         50                                        100
+    - 1500msgs/min                                                        1                                         50                                        100
+    - 500msgs/min                                                         1                                         10                                        100
+    - 6400msgs/min                                                        5                                         10                                        100
+    - 9000msgs/min                                                        5                                         20                                        100
+    - 6000msgs/min                                                        5                                         30                                        100
+    - 8300msgs/min                                                        4                                         20                                        100
+          Rate limited 210 seconds in after 29k messages
+- Messages API
+    - 11000msgs/min                                                       4                                         20                                        100
+    - 12000msgs/min                                                       2                                         50                                        100
+    - 14000msgs/min                                                       3                                         25                                        100
+    - 9000msgs/min                                                        2                                         25                                        100
+    - 10000msgs/min                                                       4                                         25                                        100
+    - 22000msgs/min                                                       4                                         50                                        100
+    - 12000msgs/min                                                       3                                         50                                        100
